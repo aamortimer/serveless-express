@@ -1,0 +1,13 @@
+service: test
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: eu-west-2
+functions:
+  hello:
+    handler: main.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
